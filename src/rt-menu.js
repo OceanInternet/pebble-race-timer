@@ -1,45 +1,45 @@
-(function (menu, timer, signals, notifications, UI) {
+(function (menu, timer, startSignals, notifications, UI) {
         
-    menu.show = show;
-    
     var options = [
-        {
-            title: 'Timer',
-            subtitle: 'Start Race Timer'
-        },
-        {
-            title: 'Signals',
-            subtitle: 'Configure start signal times'
-        },
-        {
-            title: 'Notifications',
-            subtitle: 'Configure countdown notifications'
-        }
-    ];
-    var uiMenu = new UI.Menu({
-        sections: [{
-            title: 'Race Timer',
-            items: options
-        }]
-    });
+            {
+                title: 'Timer',
+                subtitle: 'Start Race Timer'
+            },
+            {
+                title: 'Start Signals',
+                subtitle: 'Configure start signal times'
+            },
+            {
+                title: 'Notifications',
+                subtitle: 'Configure countdown notifications'
+            }
+        ],
+        uiMenu = new UI.Menu({ fullscreen: true });
     
-    uiMenu.on('select', function(event) {
-        
-        switch(options[event.itemIndex].title) {
-                
-            case 'Timer':
-                timer.show();
-                break;
-            case 'Signals':
-                signals.show();
-                break;
-            case 'Notifications':
-                notifications.show();
-                break;
-        }
-        
-        console.log();
-    });
+    menu.show = show;
+
+    init();    
+    
+    function init() {
+    uiMenu
+        .section(0, { title: 'Race Timer' })
+        .items(0, options)
+        .on('select', function(event) {
+            
+            switch(options[event.itemIndex].title) {
+                    
+                case 'Timer':
+                    timer.show();
+                    break;
+                case 'Start Signals':
+                    startSignals.show();
+                    break;
+                case 'Notifications':
+                    notifications.show();
+                    break;
+            }
+        });
+    }
     
     function show() {
         
@@ -49,7 +49,7 @@
 })(
     module.exports,
     require('rt-timer'),
-    require('rt-signals'),
+    require('rt-startSignals'),
     require('rt-notifications'),
     require('ui')
 );
