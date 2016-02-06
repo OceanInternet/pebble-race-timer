@@ -12,5 +12,7 @@ Dinghy race timer for Pebble SmartWatch.
 
 ## Notifications
 
-[main-menu]: screenshot1.png
-[start-signals]: screenshot2.png
+[main-menu]:     screenshot1.png
+[race-timer]:    screenshot2.png
+[start-signals]: screenshot3.png
+[notifications]: screenshot4.png
