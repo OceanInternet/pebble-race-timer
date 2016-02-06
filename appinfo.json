@@ -10,6 +10,7 @@
         "media": [
             {
                 "file": "images/menu_icon.png",
+                "menuIcon": true,
                 "name": "IMAGE_MENU_ICON",
                 "type": "bitmap"
             },
@@ -29,9 +30,28 @@
                 "type": "font"
             },
             {
-                "file": "images/Firefly-28x28.png",
-                "menuIcon": true,
-                "name": "IMAGES_FIREFLY_28X28_PNG",
+                "file": "images/square.png",
+                "name": "IMAGES_SQUARE_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/check.png",
+                "name": "IMAGES_CHECK_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/bell.png",
+                "name": "IMAGES_BELL_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/flag.png",
+                "name": "IMAGES_FLAG_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/clock.png",
+                "name": "IMAGES_CLOCK_PNG",
                 "type": "png"
             }
         ]

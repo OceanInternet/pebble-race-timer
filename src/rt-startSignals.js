@@ -1,4 +1,4 @@
-(function (startSignals, settings, UI) {
+(function (startSignals, menuDefaults, settings, UI) {
     
     // Standard start sequence 5-4-1-GO
     var defaults = [
@@ -6,7 +6,7 @@
             true,  false, false, true,  true,
             false, false, false, false, false
         ],
-        uiMenu = new UI.Menu({ fullscreen: true }),
+        uiMenu = new UI.Menu(JSON.parse(JSON.stringify(menuDefaults.defaults))),
         _startSignals_;
     
     startSignals.show =  show;
@@ -55,7 +55,7 @@
     
     function setItem(index) {
         
-        var title = (_startSignals_[index]) ? '[*] ' : '[_] ';
+        var title = ' ', icon = (_startSignals_[index]) ? 'images/check.png' : 'images/square.png';
             
         switch(index) {
             case 0:
@@ -68,7 +68,10 @@
                 title += index + ' Minutes';
         }
         
-        uiMenu.item(0, index, { title : title } );
+        uiMenu.item(0, index, {
+            title : title,
+            icon:   icon
+        });
     }
     
     function show() {
@@ -81,6 +84,7 @@
     
 })(
     module.exports,
+    require('rt-menuDefaults'),
     require('settings'),
     require('ui')
 );
